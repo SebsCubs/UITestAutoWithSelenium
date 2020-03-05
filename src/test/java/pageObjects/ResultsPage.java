@@ -29,7 +29,8 @@ public class ResultsPage extends PageFather {
         super(webDriver);
         this.webDriver = webDriver;
     }
-    public ResultsPage filterByPrice(String lower, String higher){
+
+    public ResultsPage filterByPrice(String lower, String higher) {
         webDriverWait = new WebDriverWait(webDriver, Long.parseLong("10"));
 
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(
@@ -37,12 +38,13 @@ public class ResultsPage extends PageFather {
         precioDrop.click();
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.className("jsx-3084763500")));
-        insertText(lower,lowerPriceField);
-        insertText(higher,higherPriceField);
+        insertText(lower, lowerPriceField);
+        insertText(higher, higherPriceField);
         priceRangeButton.click();
         return this;
     }
-    public ProductPage getFirstResult(){
+
+    public ProductPage getFirstResult() {
         webDriverWait = new WebDriverWait(webDriver, Long.parseLong("10"));
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//img[@id='testId-pod-image-3624102']")));
@@ -50,14 +52,11 @@ public class ResultsPage extends PageFather {
         return new ProductPage(webDriver);
     }
 
-    public String validateFiltering(){
+    public String validateFiltering() {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//button[@class='jsx-693919786 chip']")));
         return selectedFilter.getText();
     }
-
-
-
 
 
 }

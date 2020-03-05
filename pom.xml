@@ -7,14 +7,17 @@
     <groupId>com.endava</groupId>
     <artifactId>UIAutomationCH</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>8</source>
-                    <target>8</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -54,7 +57,7 @@
                                 <param>sample.properties</param>
                                 <param>other.properties</param>
                             </classificationFiles>
-                            <parallelTesting>false</parallelTesting>
+                            <!--<parallelTesting>false</parallelTesting>-->
                             <!-- optional, set true to group features by its Ids -->
                             <mergeFeaturesById>false</mergeFeaturesById>
                             <!-- optional, set true to get a final report with latest results of the same test from different test runs -->

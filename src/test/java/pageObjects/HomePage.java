@@ -38,15 +38,14 @@ public class HomePage extends PageFather {
     private WebElement searchButton;
 
 
-
     private WebDriver webDriver;
     private WebDriverWait webDriverWait;
 
     public HomePage(WebDriver webDriver) {
         super(webDriver);
         this.webDriver = webDriver;
-
     }
+
     public HomePage openLoginDialog() {
         webDriverWait = new WebDriverWait(webDriver, Long.parseLong("10"));
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(
@@ -56,6 +55,7 @@ public class HomePage extends PageFather {
                 By.className("Modal__modalcontent__2yJz6")));
         return this;
     }
+
     public HomePage login(String username, String password) {
         emailField.click();
         emailField.clear();
@@ -72,6 +72,7 @@ public class HomePage extends PageFather {
 
         return this;
     }
+
     public HomePage logOut() {
         Actions hoverer = new Actions(webDriver);
         hoverer.moveToElement(userWelcome).perform();
@@ -80,28 +81,23 @@ public class HomePage extends PageFather {
         logOutButton.click();
         return this;
     }
-    public RegisterPage openRegisterForm(){
+
+    public RegisterPage openRegisterForm() {
         openLoginDialog();
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//p/a[text()='Regístrate']")));
         registerButton.click();
         return new RegisterPage(webDriver);
     }
-    public ResultsPage search(String searchQuery){
-        webDriverWait = new WebDriverWait(webDriver, Long.parseLong("10"));
 
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.id("acc-alert-close")));
-        closePopUpButton.click();
+    public ResultsPage search(String searchQuery) {
+        webDriverWait = new WebDriverWait(webDriver, Long.parseLong("10"));
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.id("searchFormSolr")));
-        insertText(searchQuery,searchBar);
+        insertText(searchQuery, searchBar);
         searchButton.click();
         return new ResultsPage(webDriver);
     }
-
-
-
 
 
     public String getUserWelcome() {
@@ -109,12 +105,14 @@ public class HomePage extends PageFather {
                 By.xpath("//div[@class='fb-masthead-login__name re-design-cl__name']")));
         return userWelcome.getText();
     }
-    public String getLoginErrorText(){
+
+    public String getLoginErrorText() {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.className("Login__errorText__13IML")));
         return loginError.getText();
     }
-    public String getMiCuentaButtonText(){
+
+    public String getMiCuentaButtonText() {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//div[@class='fb-masthead-login__name re-design-cl__name login-redesing_logout-box']")));
         return iniciaLabel.getText();

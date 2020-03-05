@@ -6,8 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class DriverFactory {
     private WebDriver webDriver;
 
-    public WebDriver setWebDriver(){
-        webDriver=new ChromeDriver();
+    public WebDriver setWebDriver() {
+        webDriver = new ChromeDriver();
         return webDriver;
     }
 }

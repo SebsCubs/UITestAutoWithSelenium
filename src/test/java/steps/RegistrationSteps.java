@@ -12,7 +12,7 @@ import pageObjects.RegisterPage;
 
 public class RegistrationSteps {
     RegisterPage registerPage;
-    HomePage homePage=new HomePage(Hooks.getWebDriver());
+    HomePage homePage = new HomePage(Hooks.getWebDriver());
     HomePage validationPage;
     String fault_type;
 
@@ -24,9 +24,9 @@ public class RegistrationSteps {
 
     @When("The registration is attempted with a {string}")
     public void theRegistrationIsAttemptedWithA(String fault_type) {
-        String[] fields = {"Sebastian","Cubitos","Poe","fallatest@yandex.com","FalaTest123","FalaTest123",
-                "10205894632","12","Jul","2000","3111234567"};
-        switch (fault_type){
+        String[] fields = {"Sebastian", "Cubitos", "Poe", "fallatest@yandex.com", "FalaTest123", "FalaTest123",
+                "10205894632", "12", "Jul", "2000", "3111234567"};
+        switch (fault_type) {
             case "2":
                 fields[5] = "FalaTest125";
                 break;
@@ -36,13 +36,13 @@ public class RegistrationSteps {
         }
 
         this.fault_type = fault_type;
-        registerPage = registerPage.faultyRegister(fault_type,fields);
+        registerPage = registerPage.faultyRegister(fault_type, fields);
     }
 
 
     @Then("The page reloads with an error is prompted")
     public void thePageReloadsWithAnErrorIsPrompted() {
-        switch (fault_type){
+        switch (fault_type) {
             case "1":
                 MatcherAssert.assertThat("Error: The fault register didn't go well",
                         registerPage.validateFaultRegistration("1").contains("Debes ingresar un celular"),
