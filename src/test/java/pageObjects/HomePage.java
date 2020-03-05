@@ -92,6 +92,13 @@ public class HomePage extends PageFather {
 
     public ResultsPage search(String searchQuery) {
         webDriverWait = new WebDriverWait(webDriver, Long.parseLong("10"));
+        /*
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.id("acc-alert-close")));
+        closePopUpButton.click();
+
+         */
+
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.id("searchFormSolr")));
         insertText(searchQuery, searchBar);
