@@ -16,18 +16,20 @@ public class CartPage extends PageFather {
 
     private WebDriver webDriver;
     private WebDriverWait webDriverWait;
+
     public CartPage(WebDriver webDriver) {
         super(webDriver);
         this.webDriver = webDriver;
     }
 
-    public CartPage deleteFirstItem(){
+    public CartPage deleteFirstItem() {
         webDriverWait = new WebDriverWait(webDriver, Long.parseLong("10"));
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//div[@class='fb-prod-actionButton']/a[text()='Eliminar']")));
         deleteButton.click();
         return this;
     }
+
     public String getEmptyCartLabelText() {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//p[@class='fb-order-status__empty-basket']")));

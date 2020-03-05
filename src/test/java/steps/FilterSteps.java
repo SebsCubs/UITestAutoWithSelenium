@@ -13,6 +13,7 @@ public class FilterSteps {
 
     HomePage homePage = new HomePage(Hooks.getWebDriver());
     ResultsPage resultsPage;
+
     @Given("A search for {string} is made")
     public void aSearchForIsMade(String searchQuery) {
         resultsPage = homePage.search(searchQuery);
@@ -20,7 +21,7 @@ public class FilterSteps {
 
     @When("A price filter between {string} and {string}")
     public void aPriceFilterBetweenAnd(String lower, String higher) {
-        resultsPage = resultsPage.filterByPrice(lower,higher);
+        resultsPage = resultsPage.filterByPrice(lower, higher);
     }
 
     @Then("The results show only items within the price range")

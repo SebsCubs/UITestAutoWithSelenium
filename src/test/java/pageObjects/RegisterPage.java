@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class RegisterPage extends PageFather{
+public class RegisterPage extends PageFather {
     @FindBy(id = "user")
     private WebElement nombreField;
     @FindBy(id = "apellidopaterno")
@@ -45,23 +45,24 @@ public class RegisterPage extends PageFather{
 
     private WebDriver webDriver;
     private WebDriverWait webDriverWait;
+
     public RegisterPage(WebDriver webDriver) {
         super(webDriver);
         this.webDriver = webDriver;
     }
 
-    public RegisterPage faultyRegister(String faultType, String[] fields){
+    public RegisterPage faultyRegister(String faultType, String[] fields) {
         webDriverWait = new WebDriverWait(webDriver, Long.parseLong("10"));
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("user")));
-        switch (faultType){
+        switch (faultType) {
             case "1":
-                insertText(fields[0],nombreField);
-                insertText(fields[1],apellido1Field);
-                insertText(fields[2],apellido2Field);
-                insertText(fields[3],mailField);
-                insertText(fields[4],clave1Field);
-                insertText(fields[5],clave2Field);
-                insertText(fields[6],cedulaColField);
+                insertText(fields[0], nombreField);
+                insertText(fields[1], apellido1Field);
+                insertText(fields[2], apellido2Field);
+                insertText(fields[3], mailField);
+                insertText(fields[4], clave1Field);
+                insertText(fields[5], clave2Field);
+                insertText(fields[6], cedulaColField);
                 //Fault type = "1" : No cellphone is written
 
                 paisDrop = new Select(webDriver.findElement(By.id("status")));
@@ -69,7 +70,7 @@ public class RegisterPage extends PageFather{
 
                 cedulaDrop = new Select(webDriver.findElement(By.id("cedula")));
                 cedulaDrop.selectByVisibleText("Cédula de ciudadanía");
-                
+
                 birthDayDrop = new Select(webDriver.findElement(By.id("day")));
                 birthDayDrop.selectByVisibleText(fields[7]);
 
@@ -86,14 +87,14 @@ public class RegisterPage extends PageFather{
                 break;
             case "2":
             case "3":
-                insertText(fields[0],nombreField);
-                insertText(fields[1],apellido1Field);
-                insertText(fields[2],apellido2Field);
-                insertText(fields[3],mailField);
-                insertText(fields[4],clave1Field);
-                insertText(fields[5],clave2Field);
-                insertText(fields[6],cedulaColField);
-                insertText(fields[10],cellphoneField);
+                insertText(fields[0], nombreField);
+                insertText(fields[1], apellido1Field);
+                insertText(fields[2], apellido2Field);
+                insertText(fields[3], mailField);
+                insertText(fields[4], clave1Field);
+                insertText(fields[5], clave2Field);
+                insertText(fields[6], cedulaColField);
+                insertText(fields[10], cellphoneField);
 
                 paisDrop = new Select(webDriver.findElement(By.id("status")));
                 paisDrop.selectByVisibleText("Colombia");
@@ -121,8 +122,8 @@ public class RegisterPage extends PageFather{
         return this;
     }
 
-    public String validateFaultRegistration(String fault_type){
-        switch (fault_type){
+    public String validateFaultRegistration(String fault_type) {
+        switch (fault_type) {
             case "1":
                 webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(
                         By.id("mensajeCelVacio")));
@@ -138,7 +139,6 @@ public class RegisterPage extends PageFather{
         }
         return "Invalid fault_type";
     }
-
 
 
 }

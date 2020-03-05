@@ -9,8 +9,8 @@ public class Hooks {
 
     @Before
     public void setup() {
-        DriverFactory driverFactory=new DriverFactory();
-        webDriver=driverFactory.setWebDriver();
+        DriverFactory driverFactory = new DriverFactory();
+        webDriver = driverFactory.setWebDriver();
         webDriver.manage().window().maximize();
         webDriver.get("https://www.falabella.com.co/falabella-co/");
     }
@@ -20,7 +20,7 @@ public class Hooks {
         webDriver.quit();
     }
 
-    public static WebDriver getWebDriver(){
+    public static WebDriver getWebDriver() {
         return webDriver;
     }
 }

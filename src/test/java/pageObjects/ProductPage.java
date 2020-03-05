@@ -23,22 +23,25 @@ public class ProductPage extends PageFather {
         super(webDriver);
         this.webDriver = webDriver;
     }
-    public ProductPage addItemToCart(){
+
+    public ProductPage addItemToCart() {
         webDriverWait = new WebDriverWait(webDriver, Long.parseLong("10"));
+
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//button[@class='jsx-1816208196 button button-primary button-primary-xtra-large']")));
         addToCartButton.click();
 
         return this;
     }
-    public CartPage goToCartFromPopUp(){
+
+    public CartPage goToCartFromPopUp() {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//a[@class='jsx-3840845563 button button-primary button- ']")));
         goToCartPopUpButton.click();
         return new CartPage(webDriver);
     }
 
-    public String getConfirmationText(){
+    public String getConfirmationText() {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//span[@class='jsx-3049166186 label']")));
         return confirmationLabel.getText();

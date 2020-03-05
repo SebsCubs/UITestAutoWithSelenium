@@ -23,7 +23,7 @@ public class CartSteps {
     @Given("An user is logged in")
     public void anUserIsLoggedIn() {
         homePage = homePage.openLoginDialog();
-        validationPage = homePage.login("fallatest@yandex.com","FallabellaTest123");
+        validationPage = homePage.login("fallatest@yandex.com", "FallabellaTest123");
 
         MatcherAssert.assertThat("Error: The login was unsuccessful",
                 validationPage.getUserWelcome().contains("Bienvenid@,"), CoreMatchers.equalTo(true));
