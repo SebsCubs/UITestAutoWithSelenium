@@ -18,6 +18,8 @@ public class ResultsPage extends PageFather {
     private WebElement priceRangeButton;
     @FindBy(xpath = "//button[@class='jsx-693919786 chip']")
     private WebElement selectedFilter;
+    @FindBy(xpath = "//img[@id='testId-pod-image-3624102']")
+    private WebElement firstResult;
 
 
     private WebDriver webDriver;
@@ -27,7 +29,6 @@ public class ResultsPage extends PageFather {
         super(webDriver);
         this.webDriver = webDriver;
     }
-
     public ResultsPage filterByPrice(String lower, String higher){
         webDriverWait = new WebDriverWait(webDriver, Long.parseLong("10"));
 
@@ -40,6 +41,13 @@ public class ResultsPage extends PageFather {
         insertText(higher,higherPriceField);
         priceRangeButton.click();
         return this;
+    }
+    public ProductPage getFirstResult(){
+        webDriverWait = new WebDriverWait(webDriver, Long.parseLong("10"));
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//img[@id='testId-pod-image-3624102']")));
+        firstResult.click();
+        return new ProductPage(webDriver);
     }
 
     public String validateFiltering(){

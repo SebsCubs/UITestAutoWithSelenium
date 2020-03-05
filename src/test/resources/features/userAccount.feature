@@ -1,10 +1,4 @@
 Feature: User account interaction
-
-  Scenario: Successful sign-out
-    Given An user account is signed in
-    When The account is signed out
-    Then The user is not signed any more
-
   Scenario Outline: Invalid registration
     Given The registration form is open
     When The registration is attempted with a "<fault_type>"
@@ -30,5 +24,9 @@ Feature: User account interaction
       |fallatest@yandex.com|FaultyPass       |
       |faulty@mail.com     |FaultyPass       |
 
+  Scenario: Successful sign-out
+    Given An user account is signed in
+    When The account is signed out
+    Then The user is not signed any more
 
 

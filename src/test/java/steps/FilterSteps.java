@@ -7,7 +7,6 @@ import io.cucumber.java.en.When;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.MatcherAssert;
 import pageObjects.HomePage;
-import pageObjects.RegisterPage;
 import pageObjects.ResultsPage;
 
 public class FilterSteps {

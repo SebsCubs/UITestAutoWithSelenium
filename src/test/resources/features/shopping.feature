@@ -6,14 +6,15 @@ Feature: Shopping and Cart
     Then The results show only items within the price range
 
   Scenario: Add a product to the shopping cart
-    Given The "nevera" item is open
-    And An user is logged in
+    Given An user is logged in
+    And An item page is open
     When The item is added to the cart
     Then A pop-up is displayed with the confirmation
 
+
   Scenario: Delete an item from the cart
-    Given At least one item is in the cart
-    And An user is logged in
+    Given An user is logged in
+    And At least one item is in the cart
     And The cart page is open
     When The first item is deleted from the cart
     Then The cart has one less item
