@@ -53,7 +53,6 @@ public class HomePage extends PageFather {
 
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(iniciaButton));
         webDriver.findElement(iniciaButton).click();
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(userWelcome));
 
         return this;
     }
@@ -75,8 +74,8 @@ public class HomePage extends PageFather {
     }
 
     public ResultsPage search(String searchQuery) {
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(closePopUpButton));
-        webDriver.findElement(closePopUpButton).click();
+        //webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(closePopUpButton));
+        //webDriver.findElement(closePopUpButton).click();
 
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(searchButton));
         insertText(searchQuery, webDriver.findElement(searchBar));
@@ -85,11 +84,13 @@ public class HomePage extends PageFather {
     }
 
     public ProductPage goToFirstResult(String searchQuery) {
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(userWelcome));
         ResultsPage resultsPage = search(searchQuery);
         return resultsPage.getFirstResult();
     }
 
     public ProductPage addFirstResultToCart(String searchQuery){
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(userWelcome));
         ProductPage productPage = goToFirstResult(searchQuery);
         return  productPage.addItemToCart();
     }
