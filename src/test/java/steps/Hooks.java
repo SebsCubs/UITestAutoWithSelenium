@@ -15,6 +15,7 @@ public class Hooks {
 
     @Before
     public void setup() {
+
         // Set up driver factory
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
