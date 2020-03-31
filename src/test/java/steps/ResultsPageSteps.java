@@ -8,10 +8,9 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.ResultsPage;
 
 public class ResultsPageSteps {
-    private WebDriver webDriver;
     private ResultsPage resultsPage;
     public ResultsPageSteps(Hooks hooks){
-        webDriver = hooks.getWebDriver();
+        WebDriver webDriver = hooks.getWebDriver();
         resultsPage = new ResultsPage(webDriver);
     }
     @When("a price filter between {string} and {string}")

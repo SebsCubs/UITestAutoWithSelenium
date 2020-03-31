@@ -11,10 +11,9 @@ import pageObjects.HomePage;
 
 public class HomePageSteps {
 
-    private WebDriver webDriver;
     private HomePage homePageInstance;
     public HomePageSteps(Hooks hooks){
-        webDriver = hooks.getWebDriver();
+        WebDriver webDriver = hooks.getWebDriver();
         homePageInstance = new HomePage(webDriver);
     }
 

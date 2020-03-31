@@ -9,10 +9,9 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.ProductPage;
 
 public class ProductPageSteps {
-    private WebDriver webDriver;
     private ProductPage productPageInstance;
     public ProductPageSteps(Hooks hooks){
-        webDriver = hooks.getWebDriver();
+        WebDriver webDriver = hooks.getWebDriver();
         productPageInstance = new ProductPage(webDriver);
     }
 

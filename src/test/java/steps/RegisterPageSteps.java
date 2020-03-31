@@ -8,12 +8,11 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.RegisterPage;
 
 public class RegisterPageSteps {
-    private WebDriver webDriver;
     private String faultConversion;
     private RegisterPage registerPage;
 
     public RegisterPageSteps(Hooks hooks) {
-        webDriver = hooks.getWebDriver();
+        WebDriver webDriver = hooks.getWebDriver();
         registerPage = new RegisterPage(webDriver);
     }
 
