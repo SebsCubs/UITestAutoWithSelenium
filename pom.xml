@@ -47,12 +47,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>net.masterthought</groupId>
-            <artifactId>cucumber-reporting</artifactId>
-            <version>(check version above)</version>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/data.de.monochromata.cucumber/reporting-plugin -->
         <dependency>
             <groupId>de.monochromata.cucumber</groupId>
