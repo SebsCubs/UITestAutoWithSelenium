@@ -15,6 +15,8 @@ public class Hooks {
     @Before
     public void setup() {
         // Set up driver factory
+        String chromeDriverPath = "usr/bin/chromedriver";
+        System.setProperty("webdriver.chrome.driver", chromeDriverPath);
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
         webDriver.get("https://www.falabella.com.co/falabella-co/");
