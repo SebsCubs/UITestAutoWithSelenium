@@ -15,7 +15,7 @@ public class Hooks {
     @Before
     public void setup() {
         // Set up driver factory
-        String chromeDriverPath = "usr/bin/chromedriver";
+        String chromeDriverPath = "/usr/bin/chromedriver";
         System.setProperty("webdriver.chrome.driver", chromeDriverPath);
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
