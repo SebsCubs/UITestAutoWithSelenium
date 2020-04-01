@@ -17,10 +17,12 @@ public class Hooks {
     public void setup() {
         // Set up driver factory
         ChromeOptions chromeOptions = new ChromeOptions();
-        //chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("start-maximized");
         chromeOptions.addArguments("--no-sandbox");
         webDriver = new ChromeDriver(chromeOptions);
+
+        webDriver.manage().window().maximize();
         webDriver.navigate().to("https://www.falabella.com.co/falabella-co/");
     }
 
