@@ -22,7 +22,7 @@ public class Hooks {
         chromeOptions.addArguments("--no-sandbox");
         webDriver = new ChromeDriver(chromeOptions);
 
-        webDriver.manage().window().maximize();
+        webDriver.manage().window().fullscreen();
         webDriver.navigate().to("https://www.falabella.com.co/falabella-co/");
     }
 
