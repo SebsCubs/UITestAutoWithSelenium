@@ -2,6 +2,7 @@ package pageObjects;
 
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -33,7 +34,7 @@ public class HomePage extends PageFather {
         super(webDriver);
         this.webDriver = webDriver;
         PageFactory.initElements(webDriver, this);
-        webDriverWait = new WebDriverWait(webDriver, Long.parseLong("30"));
+        webDriverWait = new WebDriverWait(webDriver, Long.parseLong("10"));
     }
 
     public HomePage openLoginDialog() {
@@ -74,8 +75,10 @@ public class HomePage extends PageFather {
     }
 
     public ResultsPage search(String searchQuery) {
-        //webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(closePopUpButton));
-        //webDriver.findElement(closePopUpButton).click();
+        try {
+            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(closePopUpButton));
+            webDriver.findElement(closePopUpButton).click();
+        }catch (ElementClickInterceptedException e){ }
 
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(searchButton));
         insertText(searchQuery, webDriver.findElement(searchBar));

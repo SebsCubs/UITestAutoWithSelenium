@@ -18,7 +18,7 @@ public class CartPage extends PageFather {
     public CartPage(WebDriver webDriver) {
         super(webDriver);
         this.webDriver = webDriver;
-        webDriverWait = new WebDriverWait(webDriver, Long.parseLong("30"));
+        webDriverWait = new WebDriverWait(webDriver, Long.parseLong("10"));
     }
 
     public CartPage deleteFirstItem() {
