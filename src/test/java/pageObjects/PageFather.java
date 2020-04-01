@@ -6,10 +6,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PageFather {
-    private WebDriver webDriver;
-    private WebDriverWait webDriverWait;
+    final WebDriver webDriver;
+    final WebDriverWait webDriverWait;
     public PageFather(WebDriver webDriver) {
         this.webDriver = webDriver;
+        webDriverWait = new WebDriverWait(webDriver, Long.parseLong("10"));
         PageFactory.initElements(webDriver, this);
     }
 

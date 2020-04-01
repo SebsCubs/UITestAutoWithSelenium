@@ -12,13 +12,8 @@ public class CartPage extends PageFather {
     private By emptyCartLabel = By.className("fb-order-status__empty-basket");
 
 
-    private WebDriver webDriver;
-    private WebDriverWait webDriverWait;
-
     public CartPage(WebDriver webDriver) {
         super(webDriver);
-        this.webDriver = webDriver;
-        webDriverWait = new WebDriverWait(webDriver, Long.parseLong("10"));
     }
 
     public CartPage deleteFirstItem() {

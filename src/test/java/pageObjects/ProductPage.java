@@ -12,12 +12,8 @@ public class ProductPage extends PageFather {
     private By addToCartButton = By.id("buttonForCustomers");
     private By confirmationLabel = By.xpath("//div[@id='__next']/descendant::div[@class='doc-click-overlay'][5]/descendant::span[3]");
 
-    private WebDriver webDriver;
-    private WebDriverWait webDriverWait;
     public ProductPage(WebDriver webDriver){
         super(webDriver);
-        this.webDriver = webDriver;
-        webDriverWait = new WebDriverWait(webDriver, Long.parseLong("10"));
     }
 
     public ProductPage addItemToCart() {

@@ -3,6 +3,7 @@ package pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -27,14 +28,10 @@ public class HomePage extends PageFather {
     private By loginError = By.xpath("//div[@id='header-login-modal']/following::span[contains(text(),'E-mail o clave incorrecta.')]");
 
 
-    private WebDriver webDriver;
-    private WebDriverWait webDriverWait;
 
     public HomePage(WebDriver webDriver) {
         super(webDriver);
-        this.webDriver = webDriver;
         PageFactory.initElements(webDriver, this);
-        webDriverWait = new WebDriverWait(webDriver, Long.parseLong("10"));
     }
 
     public HomePage openLoginDialog() {
@@ -78,7 +75,7 @@ public class HomePage extends PageFather {
         try {
             webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(closePopUpButton));
             webDriver.findElement(closePopUpButton).click();
-        }catch (ElementClickInterceptedException e){ }
+        }catch (TimeoutException e){ }
 
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(searchButton));
         insertText(searchQuery, webDriver.findElement(searchBar));

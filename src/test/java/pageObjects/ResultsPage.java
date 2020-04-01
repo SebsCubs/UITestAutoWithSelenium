@@ -19,13 +19,8 @@ public class ResultsPage extends PageFather {
     private By selectedFilter = By.xpath("//div[@id='testId-SelectedFilters-container']/descendant::button[2]");
     private By firstResult = By.xpath("//div[@id='testId-searchResults-products']/child::div[1]");
 
-    private WebDriver webDriver;
-    private WebDriverWait webDriverWait;
-
     public ResultsPage(WebDriver webDriver) {
         super(webDriver);
-        this.webDriver = webDriver;
-        webDriverWait = new WebDriverWait(webDriver, Long.parseLong("10"));
     }
 
     public ResultsPage filterByPrice(String lower, String higher) {

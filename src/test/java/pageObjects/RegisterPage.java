@@ -36,13 +36,9 @@ public class RegisterPage extends PageFather {
     private By uncoincidentPass = By.id("mensajeClave2Incorrecto2");
     private By invalidMail = By.className("mensajes");
 
-    private WebDriver webDriver;
-    private WebDriverWait webDriverWait;
 
     public RegisterPage(WebDriver webDriver) {
         super(webDriver);
-        this.webDriver = webDriver;
-        webDriverWait = new WebDriverWait(webDriver, Long.parseLong("10"));
     }
 
     public RegisterPage faultyRegister(String faultType, String[] fields) {

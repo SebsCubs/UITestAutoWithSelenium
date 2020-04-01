@@ -8,6 +8,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Hooks {
     private static WebDriver webDriver;
@@ -15,10 +16,14 @@ public class Hooks {
     @Before
     public void setup() {
         // Set up driver factory
-        webDriver = new ChromeDriver();
-        webDriver.manage().window().maximize();
-        webDriver.get("https://www.falabella.com.co/falabella-co/");
+        ChromeOptions chromeOptions = new ChromeOptions();
+        //chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("start-maximized");
+        chromeOptions.addArguments("--no-sandbox");
+        webDriver = new ChromeDriver(chromeOptions);
+        webDriver.navigate().to("https://www.falabella.com.co/falabella-co/");
     }
+
 
     @After
     public void teardown(Scenario scenario) {
