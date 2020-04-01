@@ -3,10 +3,7 @@ package steps;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -22,7 +19,8 @@ public class Hooks {
         chromeOptions.addArguments("--no-sandbox");
         webDriver = new ChromeDriver(chromeOptions);
 
-        webDriver.manage().window().fullscreen();
+        webDriver.manage().window().setPosition(new Point(0,0));
+        webDriver.manage().window().setSize(new Dimension(1920,1080));
         webDriver.navigate().to("https://www.falabella.com.co/falabella-co/");
     }
 
