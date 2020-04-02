@@ -25,11 +25,14 @@ public class HomePage extends PageFather {
     private By searchBar = By.id("searchQuestionSolr");
     private By loginError = By.xpath("//div[@id='header-login-modal']/following::span[contains(text(),'E-mail o clave incorrecta.')]");
 
-
+    private ProductPage productPage;
+    private ResultsPage resultsPage;
 
     public HomePage(WebDriver webDriver) {
         super(webDriver);
         PageFactory.initElements(webDriver, this);
+        productPage = new ProductPage(webDriver);
+        resultsPage = new ResultsPage(webDriver);
     }
 
     public HomePage openLoginDialog() {
@@ -62,14 +65,14 @@ public class HomePage extends PageFather {
         return this;
     }
 
-    public RegisterPage openRegisterForm() {
+    public HomePage openRegisterForm() {
         openLoginDialog();
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(registerButton));
         webDriver.findElement(registerButton).click();
-        return new RegisterPage(webDriver);
+        return this;
     }
 
-    public ResultsPage search(String searchQuery) {
+    public HomePage search(String searchQuery) {
         try {
             webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(closePopUpButton));
             webDriver.findElement(closePopUpButton).click();
@@ -78,19 +81,21 @@ public class HomePage extends PageFather {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(searchButton));
         insertText(searchQuery, webDriver.findElement(searchBar));
         webDriver.findElement(searchButton).click();
-        return new ResultsPage(webDriver);
+        return this;
     }
 
-    public ProductPage goToFirstResult(String searchQuery) {
+    public HomePage goToFirstResult(String searchQuery) {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(userWelcome));
-        ResultsPage resultsPage = search(searchQuery);
-        return resultsPage.getFirstResult();
+        search(searchQuery);
+        resultsPage.getFirstResult();
+        return this;
     }
 
-    public ProductPage addFirstResultToCart(String searchQuery){
+    public HomePage addFirstResultToCart(String searchQuery){
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(userWelcome));
-        ProductPage productPage = goToFirstResult(searchQuery);
-        return  productPage.addItemToCart();
+        goToFirstResult(searchQuery);
+        productPage.addItemToCart();
+        return  this;
     }
 
 

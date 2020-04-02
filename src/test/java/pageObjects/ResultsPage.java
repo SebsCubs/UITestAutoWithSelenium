@@ -32,10 +32,10 @@ public class ResultsPage extends PageFather {
         return this;
     }
 
-    public ProductPage  getFirstResult() {
+    public ResultsPage  getFirstResult() {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(firstResult));
         webDriver.findElement(firstResult).click();
-        return new ProductPage(webDriver);
+        return this;
     }
 
     public String getFirstFilterText() {

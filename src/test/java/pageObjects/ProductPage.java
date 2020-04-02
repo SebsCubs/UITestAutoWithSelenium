@@ -23,10 +23,10 @@ public class ProductPage extends PageFather {
         return this;
     }
 
-    public CartPage goToCartFromPopUp() {
+    public ProductPage goToCartFromPopUp() {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(confirmationLabel));
         webDriver.findElement(goToCartPopUpButton).click();
-        return new CartPage(webDriver);
+        return this;
     }
 
     public String getConfirmationText() {
