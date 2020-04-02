@@ -13,12 +13,9 @@ public class PageFather {
         webDriverWait = new WebDriverWait(webDriver, Long.parseLong("10"));
         PageFactory.initElements(webDriver, this);
     }
-
     public void insertText(String text, WebElement field) {
         field.click();
         field.clear();
         field.sendKeys(text);
     }
-
-
 }
