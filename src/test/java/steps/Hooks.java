@@ -14,7 +14,7 @@ public class Hooks {
     private DriverManagerFactory driverManagerFactory = new DriverManagerFactory();
     @Before
     public void setup() {
-        driverManager = driverManagerFactory.getManager(DriverType.FIREFOX);
+        driverManager = driverManagerFactory.getManager(DriverType.CHROME);
         webDriver = driverManager.getDriver();
 
         webDriver.manage().window().setPosition(new Point(0,0));
