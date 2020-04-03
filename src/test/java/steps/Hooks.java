@@ -4,20 +4,18 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import utils.DriverManager;
+import utils.DriverManagerFactory;
+import utils.DriverType;
 
 public class Hooks {
-    private static WebDriver webDriver;
-
+    private  WebDriver webDriver;
+    private DriverManager driverManager;
+    private DriverManagerFactory driverManagerFactory = new DriverManagerFactory();
     @Before
     public void setup() {
-        // Set up driver factory
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--headless");
-        chromeOptions.addArguments("start-maximized");
-        chromeOptions.addArguments("--no-sandbox");
-        webDriver = new ChromeDriver(chromeOptions);
+        driverManager = driverManagerFactory.getManager(DriverType.FIREFOX);
+        webDriver = driverManager.getDriver();
 
         webDriver.manage().window().setPosition(new Point(0,0));
         webDriver.manage().window().setSize(new Dimension(1920,1080));
@@ -39,7 +37,7 @@ public class Hooks {
                 cce.printStackTrace();
             }
         }
-        webDriver.quit();
+        driverManager.quitDriver();
     }
 
 

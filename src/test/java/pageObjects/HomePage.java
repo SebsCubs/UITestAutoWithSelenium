@@ -36,8 +36,7 @@ public class HomePage extends PageFather {
     }
 
     public HomePage openLoginDialog() {
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(
-                miCuentaButton));
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(miCuentaButton));
         webDriver.findElement(miCuentaButton).click();
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(iniciaSesionPopUp));
         return this;
