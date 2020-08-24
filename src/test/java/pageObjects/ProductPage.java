@@ -8,7 +8,7 @@ import steps.Hooks;
 
 public class ProductPage extends PageFather {
 
-    private By goToCartPopUpButton = By.xpath("//div[@class='doc-click-overlay']/descendant::a");
+    private By goToCartPopUpButton = By.xpath("//div[@class='doc-click-overlay']/descendant::a[2]");
     private By addToCartButton = By.id("buttonForCustomers");
     private By confirmationLabel = By.xpath("//div[@id='__next']/descendant::div[@class='doc-click-overlay'][5]/descendant::span[3]");
 

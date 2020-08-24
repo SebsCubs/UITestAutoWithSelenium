@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomePage extends PageFather {
 
+    private By closeCOVIDPopUp = By.id("lightbox-close");
     private By miCuentaButton = By.id("header-login-modal");
     private By iniciaSesionPopUp = By.xpath("//div[@id='header-login-modal']//span[contains(text(),'Inicia sesi')]");
     private By registerButton = By.xpath("//div[@id='header-login-modal']/descendant::a[contains(text(),'Reg') and @href='/falabella-co/myaccount/register.jsp']");
@@ -36,6 +37,8 @@ public class HomePage extends PageFather {
     }
 
     public HomePage openLoginDialog() {
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(closeCOVIDPopUp));
+        webDriver.findElement(closeCOVIDPopUp).click();
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(miCuentaButton));
         webDriver.findElement(miCuentaButton).click();
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(iniciaSesionPopUp));
@@ -75,6 +78,8 @@ public class HomePage extends PageFather {
         try {
             webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(closePopUpButton));
             webDriver.findElement(closePopUpButton).click();
+            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(closeCOVIDPopUp));
+            webDriver.findElement(closeCOVIDPopUp).click();
         }catch (TimeoutException e){ }
 
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(searchButton));
